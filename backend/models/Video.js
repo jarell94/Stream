@@ -80,6 +80,19 @@ const videoSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  isPPV: {
+    type: Boolean,
+    default: false
+  },
+  ppvPrice: {
+    type: Number,
+    min: 0,
+    default: 0
+  },
+  isAdSupported: {
+    type: Boolean,
+    default: true
+  },
   isPublished: {
     type: Boolean,
     default: false

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPlay, FaPlus } from 'react-icons/fa';
+import { FaPlay, FaPlus, FaLock } from 'react-icons/fa';
 import './VideoCard.css';
 
 const VideoCard = ({ video, onAddToList }) => {
@@ -20,6 +20,11 @@ const VideoCard = ({ video, onAddToList }) => {
               <FaPlay />
             </button>
           </div>
+          {video.isPPV && (
+            <div className="ppv-badge">
+              <FaLock /> PPV
+            </div>
+          )}
         </div>
       </Link>
       <div className="video-card-info">
@@ -28,6 +33,9 @@ const VideoCard = ({ video, onAddToList }) => {
           <span className="year">{video.releaseYear}</span>
           <span className="rating">{video.rating}</span>
           <span className="duration">{Math.floor(video.duration / 60)}min</span>
+          {video.isPPV && video.ppvPrice > 0 && (
+            <span className="ppv-price">${video.ppvPrice.toFixed(2)}</span>
+          )}
         </div>
         <div className="video-card-genres">
           {video.genre?.slice(0, 2).map((genre, index) => (

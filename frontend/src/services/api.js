@@ -57,4 +57,15 @@ export const searchService = {
   autocomplete: (query) => api.get(`/search/autocomplete?q=${query}`)
 };
 
+export const ppvService = {
+  checkAccess: (videoId) => api.get(`/ppv/${videoId}/access`),
+  purchase: (videoId) => api.post(`/ppv/${videoId}/purchase`),
+  getPurchases: () => api.get('/ppv/purchases')
+};
+
+export const adService = {
+  getAdForVideo: (videoId, type = 'pre-roll') =>
+    api.get(`/ads/for-video/${videoId}`, { params: { type } })
+};
+
 export default api;

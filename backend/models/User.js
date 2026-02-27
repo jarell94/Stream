@@ -57,6 +57,20 @@ const userSchema = new mongoose.Schema({
     startDate: Date,
     endDate: Date
   },
+  purchasedPPV: [{
+    video: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Video'
+    },
+    purchasedAt: {
+      type: Date,
+      default: Date.now
+    },
+    price: {
+      type: Number,
+      default: 0
+    }
+  }],
   isActive: {
     type: Boolean,
     default: true
@@ -91,6 +105,13 @@ userSchema.methods.toJSON = function() {
   const user = this.toObject();
   delete user.password;
   return user;
+};
+
+// Check if user has purchased a PPV video
+userSchema.methods.hasPurchasedPPV = function(videoId) {
+  return this.purchasedPPV.some(
+    (p) => p.video.toString() === videoId.toString()
+  );
 };
 
 module.exports = mongoose.model('User', userSchema);
