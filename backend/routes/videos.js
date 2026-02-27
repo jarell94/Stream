@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const videoController = require('../controllers/videoController');
-const { protect, authorize } = require('../middleware/auth');
+const { protect, authorize, optionalAuth } = require('../middleware/auth');
 const { uploadVideo, uploadThumbnail } = require('../middleware/upload');
 
 // Public routes
@@ -11,7 +11,7 @@ router.get('/trending', videoController.getTrendingVideos);
 router.get('/by-category/:categoryId', videoController.getVideosByCategory);
 router.get('/by-genre/:genre', videoController.getVideosByGenre);
 router.get('/:id', videoController.getVideoById);
-router.get('/:id/stream', videoController.streamVideo);
+router.get('/:id/stream', optionalAuth, videoController.streamVideo);
 router.get('/:id/related', videoController.getRelatedVideos);
 
 // Protected routes

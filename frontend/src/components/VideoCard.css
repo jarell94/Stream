@@ -146,3 +146,28 @@
     font-size: 1.2rem;
   }
 }
+
+/* PPV badge on card thumbnail */
+.ppv-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #e50914;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
+
+/* PPV price in card meta */
+.video-card-meta .ppv-price {
+  color: #f5c518;
+  font-weight: 600;
+  font-size: 0.85rem;
+}

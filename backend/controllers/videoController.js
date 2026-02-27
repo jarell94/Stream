@@ -172,7 +172,7 @@ exports.getVideoById = async (req, res) => {
 
 // @desc    Stream video
 // @route   GET /api/videos/:id/stream
-// @access  Public
+// @access  Public (PPV videos require auth + purchase)
 exports.streamVideo = async (req, res) => {
   try {
     const video = await Video.findById(req.params.id);
@@ -182,6 +182,32 @@ exports.streamVideo = async (req, res) => {
         success: false,
         message: 'Video not found'
       });
+    }
+
+    // PPV access control
+    if (video.isPPV) {
+      if (!req.user) {
+        return res.status(401).json({
+          success: false,
+          message: 'Please log in to watch this pay-per-view event'
+        });
+      }
+
+      // Premium subscribers get free PPV access
+      const isPremium = req.user.subscription && req.user.subscription.plan === 'premium';
+
+      if (!isPremium) {
+        const hasPurchased = req.user.hasPurchasedPPV(video._id);
+
+        if (!hasPurchased) {
+          return res.status(403).json({
+            success: false,
+            message: 'Purchase required to watch this pay-per-view event',
+            isPPV: true,
+            ppvPrice: video.ppvPrice
+          });
+        }
+      }
     }
 
     // Increment views

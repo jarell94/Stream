@@ -14,6 +14,8 @@ const userRoutes = require('./routes/users');
 const categoryRoutes = require('./routes/categories');
 const watchHistoryRoutes = require('./routes/watchHistory');
 const searchRoutes = require('./routes/search');
+const ppvRoutes = require('./routes/ppv');
+const adRoutes = require('./routes/ads');
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/watch-history', watchHistoryRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/ppv', ppvRoutes);
+app.use('/api/ads', adRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
