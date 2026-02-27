@@ -1,0 +1,160 @@
+.home {
+  padding-top: 0;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  ),
+  linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 0 4%;
+  margin-left: 4%;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #e5e5e5;
+}
+
+.hero-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-buttons .btn {
+  font-size: 1.1rem;
+  padding: 12px 32px;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 0 4%;
+}
+
+.video-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0 4%;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 80px 4%;
+  background: linear-gradient(180deg, #141414 0%, #000000 100%);
+  margin-top: 40px;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.3rem;
+  color: #e5e5e5;
+  margin-bottom: 30px;
+}
+
+.cta-section .btn {
+  font-size: 1.2rem;
+  padding: 14px 40px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .video-row {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+  }
+}

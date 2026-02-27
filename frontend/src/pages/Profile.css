@@ -1,0 +1,136 @@
+.profile-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.profile-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.profile-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.profile-section {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.profile-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #e5e5e5;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-item label {
+  display: block;
+  font-size: 0.85rem;
+  color: #b3b3b3;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-item p {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #e50914;
+  border-radius: 4px;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.subscription-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #e50914 0%, #c40812 100%);
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: fit-content;
+}
+
+.subscription-info p {
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e50914;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding-top: 80px;
+  }
+
+  .profile-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-section {
+    padding: 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
